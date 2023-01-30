@@ -335,7 +335,7 @@
                 android:background="@drawable/backspace"
                 android:backgroundTint="@color/dark"
                 android:clickable="true"
-                android:text="00"
+                android:text="±"
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 app:cornerRadius="24dp" />

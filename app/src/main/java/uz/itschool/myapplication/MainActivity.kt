@@ -120,7 +120,6 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         btn8.setOnClickListener(this)
         btn9.setOnClickListener(this)
         btn0.setOnClickListener(this)
-        btn00.setOnClickListener(this)
     }
 
     private fun loadSigns() {
@@ -132,7 +131,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         addDot()
         addPercent()
-
+        addPlusMinus()
 
     }
 
@@ -145,6 +144,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 isDigit = false
                 isPercent = false
             }
+        }
+    }
+
+    private fun addPlusMinus() {
+        btn00.setOnClickListener {
+            tv1.text = tv1.text.toString() + "±"
         }
     }
 
@@ -225,8 +230,12 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
         var temp = ""
         for (i in s) {
-            if (i.isDigit() || i == '.') {
-                temp += i
+            if (i.isDigit() || i == '.' || i == '±') {
+                if (i.isDigit() || i == '.'){
+                    temp += i
+                }else{
+                    temp= "-$temp"
+                }
             } else {
                 list.add(temp)
                 list.add(i)
